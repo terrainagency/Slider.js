@@ -43,7 +43,7 @@ const slider = new Slider({
 ```
 
 Key | Options | Default
------------- | -------------
+------------ | ------------- | -------------
 start | num | 0
 paused | true, false | false
 interval | num | 2000
@@ -78,7 +78,7 @@ slider.slides.forEach(slide => {
 ## Callback Functions
 
 Function | Description
------------- | ------------- | -------------
+------------ | -------------
 slider.onLoad(fn)* | Call a function when the slider loads
 slider.onOpen((slide) => {}) | Call a function when a slide opens
 slider.onClose((slide) => {}) | Call a function when a slide closes
