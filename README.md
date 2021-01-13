@@ -18,7 +18,7 @@ slider.onRecycle(fn)* | Call a function when the slider recycles to the first sl
 *Proposed feature
 
 ## 1: HTML Structure
-Slider.js is only linked via data attributes. Any element attached to slider.js can be of any basic content element type, and have any desired classes.
+Slider.js is linked via data attributes. Any element attached to slider.js can be of any element type, and have any desired classes.
 
 The classes shown below are bare minimum Tailwind classes and are not required for functionality.
 
