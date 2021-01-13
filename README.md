@@ -20,27 +20,24 @@ slider.onRecycle(fn)* | Call a function when the slider recycles to the first sl
 ## 1: HTML Structure
 Slider.js is linked via data attributes. Any element attached to slider.js can be of any element type, and have any desired classes.
 
-The classes shown below are bare minimum Tailwind classes and are not required for functionality.
-
 ```html
 <!-- Parent element: linked to slider.js by [data-slider] -->
-<div data-slider class="relative">
+<div data-slider>
     <!-- Single slide element: linked to slider.js by [data-slider] -->
-    <div data-slide class="absolute active"></div>
-    <div data-slide class="absolute"></div>
+    <div data-slide></div>
 
     <!-- Displays the current state -->
     <div data-nav>
         <!-- Bullet list (optional): linked by [data-bullets] -->
         <div data-bullets>
             <!-- A single bullet element: linked by [data-bullet], and used to generate additional bullets based on slider.length -->
-            <div data-bullet class=""></div>
+            <div data-bullet></div>
         </div>
 
         <!-- Previous button: linked by [data-func="prev"] -->
-        <div data-func="prev" class="">Prev</div>
+        <div data-func="prev">Prev</div>
         <!-- Next button: linked by [data-func="next"] -->
-        <div data-func="next" class="">Next</div>
+        <div data-func="next">Next</div>
     </div>
 </div>
 ```
