@@ -4,7 +4,7 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 ## Usage
 
-slider.js is a single object. 
+slider.js is a single object template. A single page can have an infinite number of sliders.
 
 Function | Description
 ------------ | -------------
@@ -13,8 +13,35 @@ slider.slide.onClose(fn)* | Call a function when a slide closes
 
 *Proposed feature
 
+## 1: HTML Structure
+Slider.js is only linked via data attributes. Any element attached to slider.js can be of any basic content element type, and have any desired classes.
 
-## 1: Define config values
+The classes shown below are bare minimum Tailwind classes and are not required for functionality.
+
+```html
+<!-- Parent element: linked to slider.js by [data-slider] -->
+<div data-slider class="relative">
+    <!-- Single slide element: linked to slider.js by [data-slider] -->
+    <div data-slide class="absolute active"></div>
+    <div data-slide class="absolute"></div>
+
+    <!-- Displays the current state -->
+    <div data-nav>
+        <!-- Bullet list (optional): linked by [data-bullets] -->
+        <div data-bullets>
+            <!-- A single bullet element: linked by [data-bullet], and used to generate additional bullets based on slider.length -->
+            <div data-bullet class=""></div>
+        </div>
+
+        <!-- Previous button: linked by [data-func="prev"] -->
+        <div data-func="prev" class="">Prev</div>
+        <!-- Next button: linked by [data-func="next"] -->
+        <div data-func="next" class="">Next</div>
+    </div>
+</div>
+```
+
+## 2: Define config values
 
 ```javascript
 let config = {
@@ -29,7 +56,7 @@ Key | Options
 paused | false (default), true
 interval | num
 
-## 2: Create new Slider object
+## 3: Create new Slider object
 
 ```javascript
 const slider = new Slider(config);
