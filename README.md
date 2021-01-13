@@ -8,8 +8,12 @@ slider.js is a single object template. A single page can have an infinite number
 
 Function | Description
 ------------ | -------------
-slider.slide.onOpen(fn)* | Call a function when a slide opens
-slider.slide.onClose(fn)* | Call a function when a slide closes
+slider.onOpen(fn)* | Call a function when a slide opens
+slider.onClose(fn)* | Call a function when a slide closes
+slider.slide[name].onOpen(fn)* | Call a function when slide[name] opens
+slider.slide[name].onClose(fn)* | Call a function when slide[name] closes
+slider.onCycle(fn)* | Call a function when the slider cycles to the last slide
+slider.onRecycle(fn)* | Call a function when the slider recycles to the first slide
 
 *Proposed feature
 
