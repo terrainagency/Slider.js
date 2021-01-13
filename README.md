@@ -78,7 +78,7 @@ slider.slides.forEach(slide => {
 ## Callback Functions
 
 Function | Description
------------- | -------------
+------------ | ------------- | -------------
 slider.onLoad(fn)* | Call a function when the slider loads
 slider.onOpen((slide) => {}) | Call a function when a slide opens
 slider.onClose((slide) => {}) | Call a function when a slide closes
