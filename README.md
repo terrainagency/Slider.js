@@ -10,8 +10,8 @@ Function | Description
 ------------ | -------------
 slider.onOpen(fn)* | Call a function when a slide opens
 slider.onClose(fn)* | Call a function when a slide closes
-slider.slide[name].onOpen(fn)* | Call a function when slide[name] opens
-slider.slide[name].onClose(fn)* | Call a function when slide[name] closes
+slider.slide[name].onOpen(fn)* | Override the function called when slide[name] opens
+slider.slide[name].onClose(fn)* | Override the function called when slide[name] closes
 slider.onCycle(fn)* | Call a function when the slider cycles to the last slide
 slider.onRecycle(fn)* | Call a function when the slider recycles to the first slide
 
