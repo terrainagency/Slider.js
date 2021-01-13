@@ -1,6 +1,6 @@
 # GSAP Slider
 
-Dependencies: GSAP, Ghost Utils: Timer
+Dependencies: GSAP, Ghost: utils.js {Timer}
 
 ## Usage
 
