@@ -54,7 +54,7 @@ progress* | node | undefined
 
 ## 3: Define GSAP timelines
 
-A timeline can be attached to any of the slider callback functions. Timelines must come after the Slider object is defined, and thus have access to the Slider object itself. 
+A timeline can be attached to any of the slider callback functions. Timelines *must* come after the Slider object is defined, and thus have access to the Slider object itself. 
 
 ```javascript
 let tl = new TimelineMax({paused: true})
@@ -63,7 +63,7 @@ let tl = new TimelineMax({paused: true})
     slider.onCycle = () => tl.play()
 ```
 
-To attach timelines to slides, it is recommended to follow the forEach format below.
+To attach timelines to slides, a forEach format is recommended.
 
 ```javascript
 slider.slides.forEach(slide => {
@@ -79,18 +79,18 @@ slider.slides.forEach(slide => {
 
 Function | Description
 ------------ | -------------
-slider.onLoad(fn)* | Call a function when the slider loads
-slider.onOpen((slide) => {}) | Call a function when a slide opens
-slider.onClose((slide) => {}) | Call a function when a slide closes
-slider.slide[name].onOpen(fn)* | Override the function called when slide[name] opens
-slider.slide[name].onClose(fn)* | Override the function called when slide[name] closes
-slider.onCycle(fn) | Call a function when the slider cycles to the last slide
-slider.onRecycle(fn) | Call a function when the slider recycles to the first slide
+slider.onOpen(*fn*) | Call a function when a slide opens
+slider.onClose(*fn*) | Call a function when a slide closes
+slider.slide[ *value* ].onOpen(*fn*)* | Override the function called when slide[name] opens
+slider.slide[ *value* ].onClose(*fn*)* | Override the function called when slide[name] closes
+slider.onCycle(*fn*) | Call a function when the slider cycles to the last slide
+slider.onRecycle(*fn*) | Call a function when the slider recycles to the first slide
+slider.onLoad(*fn*)* | Call a function when the slider loads
 
 *Proposed feature
 
 ## Status
-GSAP Slider is a part of Terrain's Ghost library, and is currently in development. Ghost is a library of foundational code blocks, designed for practical use on projects built with GSAP and Tailwind. 
+GSAP Slider is a part of **Terrain's Ghost library**, and is currently in development. Ghost is a library of foundational code blocks, designed for practical use on projects built with GSAP and Tailwind. 
 
 Ghost's code is non-obtrusive, and does not create any actions without your direction. It is designed to be as agnostic as possible, allowing it to function freely accross a large variety of applications.
 
