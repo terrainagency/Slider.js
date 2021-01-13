@@ -9,7 +9,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const slider = new Slider(config);
 });
-
-// const timer = new Timer(() => {
-//     console.log("Do something");
-// }, 200);

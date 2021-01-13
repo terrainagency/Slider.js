@@ -1,6 +1,6 @@
 # GSAP Slider
 
-Dependencies: GSAP, Utils {Timer}
+Dependencies: GSAP, Ghost Utils: Timer
 
 ## Usage
 

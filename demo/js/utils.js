@@ -1,4 +1,4 @@
-class Timer {
+export class Timer {
     constructor(fn, t) {
         this.fn = fn;
         this.t = t;
@@ -31,7 +31,7 @@ class Timer {
     }
 }
 
-class Slider {
+export class Slider {
     constructor(settings) {
         this.settings = settings;
         this.slides = this.settings.container.querySelectorAll("[data-slide]"),
@@ -96,5 +96,3 @@ class Slider {
         this.slides[this.current].classList.add("active");
     }
 }
-
-export { Timer, Slider };
