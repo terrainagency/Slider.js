@@ -65,6 +65,8 @@ let tl = new TimelineMax({paused: true})
 
 To attach timelines to slides, a forEach format is recommended.
 
+> target.onSomething = () => myTimeline.play()
+
 ```javascript
 slider.slides.forEach(slide => {
     let tl= new TimelineMax({paused: true})
