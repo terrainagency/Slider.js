@@ -6,15 +6,28 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 slider.js is a single object. 
 
+Function | Description
+------------ | -------------
+slider.slide.onOpen(fn)* | Call a function when a slide opens
+slider.slide.onClose(fn)* | Call a function when a slide closes
+
+*Proposed feature
+
+
 ## 1: Define config values
 
 ```javascript
 let config = {
     container: document.querySelector("[data-slider]"),
-    paused: false,
+    paused: true,
     timer: 1000,
 }
 ```
+
+Key | Options
+------------ | -------------
+paused | false (default), true
+timer | num
 
 ## 2: Create new Slider object
 
