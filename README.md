@@ -4,7 +4,7 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 ## Usage
 
-slider.js is a 2kb (minified) single object template. A single page can have an infinite number of sliders.
+slider.js is a 2kb (minified) single object template. 
 
 ## 1: HTML Structure
 Slider.js is linked via data attributes. Any element attached to slider.js can be of any element type, and have any desired classes.
@@ -34,34 +34,58 @@ Slider.js is linked via data attributes. Any element attached to slider.js can b
 ## 2: Define config values
 
 ```javascript
-let config = {
+const slider = new Slider({
     container: document.querySelector("[data-slider]"),
+    start: 0,
     paused: true,
-    interval: 1000,
-}
+    interval: 3000,
+})
 ```
 
-Key | Options
+Key | Options | Default
 ------------ | -------------
-paused | false (default), true
-interval | num
+start | num | 0
+paused | true, false | false
+interval | num | 2000
+lazy* | true, false | false
+progress* | node | undefined
 
-## 3: Create new Slider object
+* Proposed feature
+
+## 3: Define GSAP timelines
+
+A timeline can be attached to any of the slider callback functions. Timelines must come after the Slider object is defined, and thus have access to the Slider object itself. 
 
 ```javascript
-const slider = new Slider(config);
+let tl = new TimelineMax({paused: true})
+    .to(slider.settings.container, {backgroundColor: "#0f0"})
+
+    slider.onCycle = () => tl.play()
+```
+
+To attach timelines to slides, it is recommended to follow the forEach format below.
+
+```javascript
+slider.slides.forEach(slide => {
+    let tl= new TimelineMax({paused: true})
+        .to(slide.container, {backgroundColor: "#f0f"})
+
+    slide.onOpen = () => tl.play()
+    slide.onClose = () => tl.reverse()
+})
 ```
 
 ## Callback Functions
 
 Function | Description
 ------------ | -------------
-slider.onOpen(fn)* | Call a function when a slide opens
-slider.onClose(fn)* | Call a function when a slide closes
+slider.onLoad(fn)* | Call a function when the slider loads
+slider.onOpen((slide) => {}) | Call a function when a slide opens
+slider.onClose((slide) => {}) | Call a function when a slide closes
 slider.slide[name].onOpen(fn)* | Override the function called when slide[name] opens
 slider.slide[name].onClose(fn)* | Override the function called when slide[name] closes
-slider.onCycle(fn)* | Call a function when the slider cycles to the last slide
-slider.onRecycle(fn)* | Call a function when the slider recycles to the first slide
+slider.onCycle(fn) | Call a function when the slider cycles to the last slide
+slider.onRecycle(fn) | Call a function when the slider recycles to the first slide
 
 *Proposed feature
 
