@@ -4,7 +4,7 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 ## Usage
 
-slider.js is a single object template. A single page can have an infinite number of sliders.
+slider.js is a 2kb (minified) single object template. A single page can have an infinite number of sliders.
 
 Function | Description
 ------------ | -------------

@@ -2,10 +2,12 @@ import {Slider} from './utils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    let config = {
+    const slider = new Slider({
         container: document.querySelector("[data-slider]"),
         paused: false,
-        timer: 1000,
-    }
-    const slider = new Slider(config);
+        interval: 3000,
+        onCycle: () => {console.log("slider: onCycle()")},
+    });
+
+    slider.settings.onRecycle = () => {console.log("slider: onRecycle()")};
 });

@@ -6,9 +6,7 @@ export class Timer {
         this.init();
     }
     init() {
-        console.log(this.fn);
-        console.log(this.t);
-        console.log(this.timer);
+        console.log(this);
     }
     stop() {
         if(this.timer) {
@@ -76,7 +74,6 @@ export class Slider {
         this.nav.nextBtn.addEventListener('click', () => {
             this.timer.reset(this.settings.interval);
             this.changeSlide(this.current++);
-            console.log("next clicked");
         });
 
         this.nav.prevBtn.addEventListener('click', () => {
@@ -85,14 +82,26 @@ export class Slider {
         });
     }
     changeSlide() {
-        if(this.current < 0) {this.current = this.slides.length-1}
-        else if(this.current >= this.slides.length) {this.current = 0}
+        // Handle Recycle
+        if(this.current < 0) {
+            this.current = this.slides.length-1;
+            if(this.settings.onRecycle){this.onRecycle(this.settings.onRecycle)}; // Recycle Callback
+        }
+        // Handle Cycle
+        else if(this.current >= this.slides.length) {
+            this.current = 0;
+            if(this.settings.onCycle){this.onCycle(this.settings.onCycle)}; // Cycle Callback
+        }
 
         this.slides.forEach((slide) => {
             slide.classList.remove("active");
         })
         this.slides[this.current].classList.add("active");
     }
+    onOpen(fn) {fn()} // Open Callback
+    onClose(fn) {fn()} // Close Callback
+    onRecycle(fn) {fn()} // Recycle Callback
+    onCycle(fn) {fn()} // Cycle Callback
 }
 
 
