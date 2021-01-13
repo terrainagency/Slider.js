@@ -17,7 +17,7 @@ export class Slider {
                 this.current++;
                 this.changeSlide();
 
-            }, this.settings.timer);
+            }, this.settings.interval);
         };
 
         this.initButtons();
@@ -41,13 +41,13 @@ export class Slider {
     }
     initButtons() {
         this.nav.nextBtn.addEventListener('click', () => {
-            this.timer.reset(this.settings.timer);
+            this.timer.reset(this.settings.interval);
             this.changeSlide(this.current++);
             console.log("next clicked");
         });
 
         this.nav.prevBtn.addEventListener('click', () => {
-            this.timer.reset(this.settings.timer);
+            this.timer.reset(this.settings.interval);
             this.changeSlide(this.current--);
         });
     }

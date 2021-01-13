@@ -20,14 +20,14 @@ slider.slide.onClose(fn)* | Call a function when a slide closes
 let config = {
     container: document.querySelector("[data-slider]"),
     paused: true,
-    timer: 1000,
+    interval: 1000,
 }
 ```
 
 Key | Options
 ------------ | -------------
 paused | false (default), true
-timer | num
+interval | num
 
 ## 2: Create new Slider object
 
