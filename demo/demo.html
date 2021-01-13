@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="demo.css">
+</head>
+<body>
+
+    <section data-slider class="relative">
+        <div data-slide class="absolute w-full h-full active">
+            First Slide
+        </div>
+        <div data-slide class="absolute w-full h-full">
+            Second Slide
+        </div>
+        <div data-slide class="absolute w-full h-full">
+            Third Slide
+        </div>
+        <div data-slide class="absolute w-full h-full">
+            Fourth Slide
+        </div>
+
+        <!-- Displays the current state -->
+        <div data-nav>
+            <div data-bullets>
+
+                <!-- The classes attached to the bullet will be the same for all generated bullets -->
+                <div data-bullet class=""></div>
+            </div>
+
+            <div data-func="prev" class="">Prev</div>
+            <div data-func="next" class="">Next</div>
+        </div>
+    </section>
+
+    <script type="module" src="/js/main.js"></script>
+    
+</body>
+</html>
