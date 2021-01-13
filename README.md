@@ -6,17 +6,6 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 slider.js is a single object template. A single page can have an infinite number of sliders.
 
-Function | Description
------------- | -------------
-slider.onOpen(fn)* | Call a function when a slide opens
-slider.onClose(fn)* | Call a function when a slide closes
-slider.slide[name].onOpen(fn)* | Override the function called when slide[name] opens
-slider.slide[name].onClose(fn)* | Override the function called when slide[name] closes
-slider.onCycle(fn)* | Call a function when the slider cycles to the last slide
-slider.onRecycle(fn)* | Call a function when the slider recycles to the first slide
-
-*Proposed feature
-
 ## 1: HTML Structure
 Slider.js is linked via data attributes. Any element attached to slider.js can be of any element type, and have any desired classes.
 
@@ -62,6 +51,19 @@ interval | num
 ```javascript
 const slider = new Slider(config);
 ```
+
+## Callback Functions
+
+Function | Description
+------------ | -------------
+slider.onOpen(fn)* | Call a function when a slide opens
+slider.onClose(fn)* | Call a function when a slide closes
+slider.slide[name].onOpen(fn)* | Override the function called when slide[name] opens
+slider.slide[name].onClose(fn)* | Override the function called when slide[name] closes
+slider.onCycle(fn)* | Call a function when the slider cycles to the last slide
+slider.onRecycle(fn)* | Call a function when the slider recycles to the first slide
+
+*Proposed feature
 
 ## Status
 GSAP Slider is a part of Terrain's Ghost library, and is currently in development. Ghost is a library of foundational code blocks, designed for practical use on projects built with GSAP and Tailwind. 
