@@ -4,7 +4,7 @@ Dependencies: GSAP, Ghost Utils: Timer
 
 ## Usage
 
-slider.js is a 2kb (minified) single object template. 
+slider.js is a 2kb (minified) single object template intended for use with GSAP and TailwindCSS. GSAP is utilized to attach timelines to slider callbacks, and is Tailwind ready due to its agnostic nature.
 
 ## 1: HTML Structure
 Slider.js is linked via data attributes. Any element attached to slider.js can be of any element type, and have any desired classes.
