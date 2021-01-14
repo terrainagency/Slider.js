@@ -110,7 +110,7 @@ GSAP Slider is a part of **Terrain's Ghost library**, and is currently in develo
 
 Ghost's code is non-obtrusive, and does not create any actions without your direction. It is designed to be as agnostic as possible, allowing it to function freely accross a large variety of applications.
 
-*Coming soon: Shopify schema compatibility for Slider settings*
+*Coming soon: Shopify version with schema compatibility for Slider settings*
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
