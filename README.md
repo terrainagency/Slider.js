@@ -55,26 +55,39 @@ progress* | node | undefined
 
 ## 3: Define GSAP timelines
 
-A timeline can be attached to any of the slider callback functions. Timelines *must* come after the Slider object is defined, and thus have access to the Slider object itself. 
+A timeline can be attached to any of the Slider callback functions. Timelines *must* come after the Slider object is defined, and thus have access to the Slider object itself. 
+
+Timelines can be structured in any way compatable with GSAP, as long as they are appropriately attached to a Slider callback function.
 
 ```javascript
-let tl = new TimelineMax({paused: true})
+let tl = new TimelineMax({paused: true}) 
     .to(slider.settings.container, {backgroundColor: "#0f0"})
 
-    slider.onCycle = () => tl.play()
+slider.onCycle = () => tl.play()
 ```
 
-To attach timelines to slides, a forEach format is recommended:
+> Tip: Setting paused:true on your timeline will allow you to call GSAP methods like .play() .reverse() manually. 
+
+To attach timelines to slides, a forEach format is recommended along with a master timeline:
 
 ```javascript
-slider.slides.forEach(slide => {
-    let tl= new TimelineMax({paused: true})
-        .to(slide.container, {backgroundColor: "#f0f"})
+// Create a master timeline for slides
+let slideMaster = new TimelineMax()
 
-    slide.onOpen = () => tl.play()
-    slide.onClose = () => tl.reverse()
+// Define GSAP Timelines for each slider callback:
+slider.slides.forEach(slide => {
+    function myTimeline () {
+        let tl = new TimelineMax({paused: false})
+            .to(slide.container, {backgroundColor: "#f0f"}, ">") 
+
+        return tl
+    }
+
+    slide.onOpen = () => slideMaster.add(myTimeline())
 })
 ```
+
+> Note: Remember that the value of Slider callbacks like slider.onCycle is a function, and can do whatever you want it to be
 
 ## Callback Functions
 
@@ -96,6 +109,8 @@ slider.onLoad(**fn**)* | Call a function when the slider loads
 GSAP Slider is a part of **Terrain's Ghost library**, and is currently in development. Ghost is a library of foundational code blocks, designed for practical use on projects built with GSAP and Tailwind. 
 
 Ghost's code is non-obtrusive, and does not create any actions without your direction. It is designed to be as agnostic as possible, allowing it to function freely accross a large variety of applications.
+
+*Coming soon: Shopify schema compatibility for Slider settings*
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

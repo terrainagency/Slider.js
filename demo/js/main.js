@@ -11,15 +11,26 @@ document.addEventListener('DOMContentLoaded', () => {
         interval: 3000,
     })
 
+    // slide master timeline
+    let slideMaster = new TimelineMax()
+
     // GSAP Timelines for the slider below:
     slider.slides.forEach(slide => {
-        let tlOpenSlide = new TimelineMax({paused: true})
-            .to(slide.container, {backgroundColor: "#f0f"})
+        function openSlide () {
+            let tl = new TimelineMax({paused: true})
+                .to(slide.container, {backgroundColor: "#f0f"}, ">")
 
-        slide.onOpen = () => tlOpenSlide.play()
-        slide.onClose = () => tlOpenSlide.reverse()
+            return tl
+        }
+        function closeSlide () {
+            let tl = new TimelineMax({paused: true})
+                .to(slide.container, {backgroundColor: "#fff"}, ">")
 
-        console.log(slide)
+            return tl
+        }
+
+        slide.onOpen = () => slideMaster.add(openSlide().play())
+        slide.onClose = () => slideMaster.add(closeSlide().play())
     })
     let tlCycleSlider = new TimelineMax({paused: true})
         .to(slider.settings.container, {backgroundColor: "#0f0"})
@@ -35,10 +46,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slider.init()
 })
-
-
-
-// Next step is to create a master timeline with tweens for each callback. 
-// Then move through each one so that everything remains chronological.
-
-// Make sure this is a real problem right now it appears that they are chronological?

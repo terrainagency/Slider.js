@@ -3,10 +3,6 @@ export class Timer {
         this.fn = fn
         this.t = t
         this.timer = setInterval(this.fn, this.t)
-        this.init()
-    }
-    init() {
-        console.log(this)
     }
     stop() {
         if(this.timer) {
@@ -24,7 +20,6 @@ export class Timer {
     }
     reset(t) {
         this.t = t
-
         return this.stop().start()
     }
 }
@@ -38,12 +33,9 @@ export class Slider {
         this.initialize()
     }
     initialize() {
-        console.log("INITIALIZE SLIDER")
         this.nav = this.initNav()
         this.initButtons()
         this.initSlides()
-
-
 
         // If no start value is specified, default to 0
         if(!this.settings.start) {this.settings.start = 0} 
@@ -52,12 +44,13 @@ export class Slider {
         // If the slider is not paused, create and execute a timer
         if(!this.settings.interval) {this.settings.interval = 5000}
         if(this.settings.paused === undefined) {this.settings.paused = true}
+
         if(!this.settings.paused) {
             this.timer = new Timer(() => {this.changeSlide(1)}, this.settings.interval)
         }
     }
+    // Creates an object for each [data-slide] found within [data-slider]
     initSlides() {
-        // Creates an object for each [data-slide] found within [data-slider]
         let arr = this.container.querySelectorAll(this.settings.slides)
 
         arr.forEach(slide => {
@@ -66,10 +59,7 @@ export class Slider {
                 container: slide,
             }
             this.slides.push(obj)
-
         })
-        console.log(this)
-
     }
     initNav() {
         let nav = {
@@ -116,8 +106,16 @@ export class Slider {
 
         console.log(`Move ${i} to ${this.current}`)
 
+        // let animateSecond = () => this.slides[this.current].onOpen()
+        // let animateFirst = () => {
+        //     this.slides[i].onClose()
+        //     animateSecond()
+        // }
+        // animateFirst()
+
         this.slides[i].onClose()
         this.slides[this.current].onOpen()
+
     }
     reset() {
         if(!this.settings.paused) {this.timer.reset(this.settings.interval)}
