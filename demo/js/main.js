@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Define slider as a new object of type Slider
     const slider = new Slider({
-        container: document.querySelector("[data-slider]"),
+        container: "[data-slider]",
+        slides: "[data-slide]",
         start: 0,
         paused: true,
         interval: 3000,
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slide.onOpen = () => tlOpenSlide.play()
         slide.onClose = () => tlOpenSlide.reverse()
+
+        console.log(slide)
     })
     let tlCycleSlider = new TimelineMax({paused: true})
         .to(slider.settings.container, {backgroundColor: "#0f0"})
@@ -30,4 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         slider.onRecycle = () => tlRecycleSlider.play()
 
+    slider.init()
 })
+
+
+
+// Next step is to create a master timeline with tweens for each callback. 
+// Then move through each one so that everything remains chronological.
+
+// Make sure this is a real problem right now it appears that they are chronological?

@@ -35,7 +35,8 @@ Slider.js is linked via data attributes. Any element attached to slider.js can b
 
 ```javascript
 const slider = new Slider({
-    container: document.querySelector("[data-slider]"),
+    container: "[data-slider]",
+    slides: "[data-slide]",
     start: 0,
     paused: true,
     interval: 3000,
@@ -45,7 +46,7 @@ const slider = new Slider({
 Key | Options | Default
 ------------ | ------------- | -------------
 start | num | 0
-paused | true, false | false
+paused | true, false | true
 interval | num | 2000
 lazy* | true, false | false
 progress* | node | undefined
@@ -81,6 +82,8 @@ Function | Description
 ------------ | -------------
 slider.onOpen(**fn**) | Call a function when a slide opens
 slider.onClose(**fn**) | Call a function when a slide closes
+slider.openSlide(**slide**, **fn**)* | Open a specific slide
+slider.openSlide(**slide**, **fn**)* | Close a specific slide
 slider.slide[ **value** ].onOpen(**fn**)* | Override the function called when slide[name] opens
 slider.slide[ **value** ].onClose(**fn**)* | Override the function called when slide[name] closes
 slider.onCycle(**fn**) | Call a function when the slider cycles to the last slide
