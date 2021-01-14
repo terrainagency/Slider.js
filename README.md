@@ -95,12 +95,10 @@ slider.slides.forEach(slide => {
 
 Function | Description
 ------------ | -------------
-slider.onOpen(**fn**) | Call a function when a slide opens
-slider.onClose(**fn**) | Call a function when a slide closes
-slider.openSlide(**slide**, **fn**)* | Open a specific slide
-slider.openSlide(**slide**, **fn**)* | Close a specific slide
-slider.slide[ **value** ].onOpen(**fn**)* | Override the function called when slide[name] opens
-slider.slide[ **value** ].onClose(**fn**)* | Override the function called when slide[name] closes
+slide.onOpen(**fn**) | Call a function when a slide opens
+slide.onClose(**fn**) | Call a function when a slide closes
+slide[ **value** ].onOpen(**fn**)* | Override the function called when slide[name] opens
+slide[ **value** ].onClose(**fn**)* | Override the function called when slide[name] closes
 slider.onCycle(**fn**) | Call a function when the slider cycles to the last slide
 slider.onRecycle(**fn**) | Call a function when the slider recycles to the first slide
 slider.onLoad(**fn**)* | Call a function when the slider loads
