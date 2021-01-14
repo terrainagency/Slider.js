@@ -3,7 +3,7 @@ import {Slider} from './utils.js'
 document.addEventListener('DOMContentLoaded', () => {
 
     // Define slider as a new object of type Slider
-    const slider = new Slider({
+    let slider = new Slider({
         container: "[data-slider]",
         slides: "[data-slide]",
         start: 0,
