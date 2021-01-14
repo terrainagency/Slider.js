@@ -68,6 +68,7 @@ slider.onCycle = () => tl.play()
 
 > Tip: Setting paused:true on your timeline will allow you to call GSAP methods like .play() .reverse() manually. 
 
+
 To attach timelines to slides, a forEach format is recommended along with a master timeline:
 
 ```javascript
@@ -88,6 +89,7 @@ slider.slides.forEach(slide => {
 ```
 
 > Note: Remember that the value of Slider callbacks like slider.onCycle is a function, and can do whatever you want it to be
+
 
 ## Callback Functions
 
